@@ -129,9 +129,44 @@ img{ max-width:100%; display:block; }
   display:inline-block;
 }
 .nav-cta:hover{ background:var(--sun-deep); }
-@media (max-width: 860px){
-  .nav-links{ display:none; }
+
+.nav-toggle{
+  display:none;
+  width:2.8rem; height:2.8rem;
+  flex-direction:column; align-items:center; justify-content:center; gap:.33rem;
+  border:1.5px solid var(--ink); border-radius:50%;
+  background:transparent; cursor:pointer;
+  transition:background .25s;
+}
+.nav-toggle:hover{ background:var(--sun); }
+.nav-toggle span{
+  display:block; width:1.05rem; height:1.5px; background:var(--ink);
+  transition:transform .35s cubic-bezier(.4,0,.2,1), opacity .2s;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){ transform:translateY(.48rem) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity:0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3){ transform:translateY(-.48rem) rotate(-45deg); }
+
+@media (max-width: 1040px){
+  .nav-toggle{ display:flex; }
   .brand-name{ font-size:.95rem; }
+  .nav-links{
+    position:absolute; top:100%; left:0; right:0;
+    flex-direction:column; align-items:stretch; gap:0;
+    background:var(--cream);
+    border-bottom:2px solid var(--sun);
+    padding:.4rem var(--gutter) 1.5rem;
+    opacity:0; visibility:hidden; transform:translateY(-10px);
+    transition:opacity .3s ease, transform .3s ease, visibility .3s;
+    pointer-events:none;
+  }
+  .nav[data-open="true"] .nav-links{
+    opacity:1; visibility:visible; transform:none; pointer-events:auto;
+  }
+  .nav-links li{ border-bottom:1px solid var(--line); }
+  .nav-links li:last-child{ border-bottom:none; padding-top:1.2rem; }
+  .nav-links a{ display:block; padding-block:1.05rem; font-size:1.02rem; }
+  .nav-cta{ text-align:center; padding-block:.9rem; }
 }
 
 /* ============ PAGE HEAD ============ */
@@ -330,10 +365,14 @@ img{ max-width:100%; display:block; }
         <li><a class="ul-link" href="index.html#o-nas">O školce</a></li>
         <li><a class="ul-link" href="index.html#den-ve-skolce">Den ve školce</a></li>
         <li><a class="ul-link" href="index.html#program">Program</a></li>
+        <li><a class="ul-link" href="index.html#zivot">Zahrada &amp; akce</a></li>
         <li><a class="ul-link" href="dokumenty-ke-stazeni.html" aria-current="page">Dokumenty</a></li>
         <li><a class="nav-cta" href="index.html#zapis">Zápis</a></li>
       </ul>
     </nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-label="Otevřít menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -420,6 +459,30 @@ img{ max-width:100%; display:block; }
 (function(){
   "use strict";
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ---- Mobile menu (must work even without GSAP) ---- */
+  var navEl = document.querySelector(".nav");
+  var navToggle = document.querySelector(".nav-toggle");
+  function closeNav(){
+    navEl.setAttribute("data-open", "false");
+    navToggle.setAttribute("aria-expanded", "false");
+    navToggle.setAttribute("aria-label", "Otevřít menu");
+  }
+  if (navToggle) {
+    navToggle.addEventListener("click", function(){
+      var open = navEl.getAttribute("data-open") === "true";
+      if (open) { closeNav(); return; }
+      navEl.setAttribute("data-open", "true");
+      navToggle.setAttribute("aria-expanded", "true");
+      navToggle.setAttribute("aria-label", "Zavřít menu");
+    });
+    navEl.querySelectorAll(".nav-links a").forEach(function(a){
+      a.addEventListener("click", closeNav);
+    });
+    document.addEventListener("keydown", function(e){
+      if (e.key === "Escape") closeNav();
+    });
+  }
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (reduced || !window.gsap || !window.ScrollTrigger) return;
