@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>O školce — Mateřská škola Želatovice</title>
-<meta name="description" content="Jednotřídní mateřská škola v Želatovicích u Přerova. Dvacet dětí, dvě učitelky a prostorná zahrada s lanovým centrem, skluzavkou a překážkovou dráhou.">
+<title>Kalendář akcí — Mateřská škola Želatovice</title>
+<meta name="description" content="Co nás čeká ve školním roce: výlety, slavnosti, kurzy a akce pro rodiče. Kalendář akcí Mateřské školy Želatovice od září do června.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -72,12 +72,6 @@ img{ max-width:100%; display:block; }
   width:2.6rem; height:2px;
   background:var(--sun-deep);
   flex:none;
-}
-.sec-num{
-  font-family:var(--font-mono);
-  font-size:clamp(.7rem, .68rem + .15vw, .8rem);
-  letter-spacing:.18em;
-  color:var(--ink-soft);
 }
 h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; letter-spacing:-.015em; }
 .lead{
@@ -181,187 +175,202 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
   .nav-cta{ text-align:center; padding-block:.9rem; }
 }
 
-/* ============ HERO ============ */
-.hero{
-  padding-top:clamp(8rem, 17vh, 11rem);
-  padding-bottom:clamp(2rem, 5vw, 4rem);
+/* ============ PAGE HEAD ============ */
+.page-head{
+  position:relative;
+  padding-top:clamp(9rem, 20vh, 13rem);
   overflow:hidden;
 }
-.hero-copy{ grid-column:1 / span 6; align-self:center; }
-.hero-title{
-  font-size:clamp(2.6rem, 1.4rem + 5.6vw, 6.2rem);
+.page-title{
+  font-family:var(--font-display);
+  font-size:clamp(2.6rem, 1.4rem + 6.4vw, 7rem);
   font-weight:320;
   font-variation-settings:"opsz" 144;
   line-height:1;
   letter-spacing:-.02em;
   margin-top:1.5rem;
 }
-.hero-title em{ font-style:italic; color:var(--teal-ink); font-weight:360; }
-.hero-title .line{ display:block; overflow:hidden; }
-.hero-title .line > span{ display:inline-block; }
-.hero-copy .lead{ margin-top:clamp(1.4rem, 3vw, 2.2rem); }
-.hero-figure{
-  grid-column:8 / span 5;
-  position:relative;
+.page-title em{ font-style:italic; color:var(--teal-ink); font-weight:360; }
+.page-title .line{ display:block; overflow:hidden; }
+.page-title .line > span{ display:inline-block; }
+.head-sub{
+  margin-top:clamp(1.5rem, 3vw, 2.4rem);
+  display:grid; grid-template-columns:minmax(0,34em) auto; gap:2rem;
+  align-items:end;
 }
-.hero-figure .shot{ overflow:hidden; border-radius:2px; background:var(--cream-deep); }
-.hero-figure img{ width:100%; height:auto; }
-.hero-figure figcaption{
-  margin-top:.9rem;
+@media (max-width:760px){ .head-sub{ grid-template-columns:1fr; } }
+.head-fact{
   font-family:var(--font-mono);
-  font-size:.68rem; letter-spacing:.16em; text-transform:uppercase;
+  font-size:.75rem; letter-spacing:.14em;
   color:var(--ink-soft);
+  text-align:right; line-height:2;
 }
-@media (max-width:900px){
-  .hero-copy{ grid-column:1 / -1; }
-  .hero-figure{ grid-column:1 / -1; margin-top:clamp(2.5rem, 6vw, 4rem); }
-}
-
-/* ============ SECTIONS ============ */
-.section{ padding-top:var(--section-gap); }
-
-.sec-head{
-  display:flex; align-items:baseline; gap:1.4rem;
-  border-bottom:2px solid var(--sun);
-  padding-bottom:1.1rem;
-  margin-bottom:clamp(2.5rem, 5vw, 4.5rem);
-}
-.sec-head h2{
-  font-size:clamp(1.9rem, 1.3rem + 3vw, 3.6rem);
-  font-weight:380;
-  font-variation-settings:"opsz" 90;
-}
-.sec-head .spacer{ flex:1; }
-.sec-head .sec-side{
-  font-family:var(--font-mono); font-size:.72rem;
-  letter-spacing:.16em; color:var(--ink-soft);
-  text-transform:uppercase;
-  white-space:nowrap;
-}
-@media (max-width:640px){ .sec-head .sec-side{ display:none; } }
-
-/* ---- ABOUT ---- */
-.about-copy{ grid-column:1 / span 6; }
-.about-copy .big{
-  font-family:var(--font-display);
-  font-size:clamp(1.5rem, 1.15rem + 1.9vw, 2.7rem);
-  font-weight:360; line-height:1.28;
-  font-variation-settings:"opsz" 60;
-}
-.about-copy .big strong{ font-weight:520; color:var(--teal-ink); }
-.about-copy p + p{ margin-top:1.4rem; }
-.about-side{
-  grid-column:8 / span 5;
-  display:flex; flex-direction:column; gap:0;
-  border-left:2px solid var(--sun);
-  padding-left:clamp(1.2rem, 2.5vw, 2.5rem);
-  align-self:start;
-}
-.about-side .row{
-  display:flex; justify-content:space-between; gap:1rem;
-  padding-block:1.05rem;
-  border-bottom:1px solid var(--line);
-  font-size:.95rem;
-}
-.about-side .row:last-child{ border-bottom:none; }
-.about-side dt{ color:var(--ink-soft); }
-.about-side dd{ font-weight:600; text-align:right; }
-@media (max-width:900px){
-  .about-copy{ grid-column:1 / -1; }
-  .about-side{ grid-column:1 / -1; margin-top:3rem; }
+@media (max-width:760px){ .head-fact{ text-align:left; } }
+.head-bee{
+  position:absolute;
+  right:clamp(.5rem, 7vw, 9rem);
+  top:clamp(5.2rem, 12vh, 8rem);
+  width:clamp(90px, 11vw, 180px);
+  pointer-events:none;
+  z-index:-1;
 }
 
-.counters{
-  margin-top:clamp(3.5rem, 7vw, 6.5rem);
-  display:grid;
-  grid-template-columns:repeat(4, 1fr);
-  border-top:2px solid var(--ink);
+/* ============ NOW BANNER ============ */
+.now-banner{
+  margin-top:clamp(2.5rem, 5vw, 4rem);
+  display:flex; align-items:baseline; gap:1rem 1.4rem; flex-wrap:wrap;
+  background:var(--cream-deep);
+  border-left:3px solid var(--sun-deep);
+  padding:1.2rem clamp(1.1rem, 2.5vw, 1.8rem);
 }
-.counter{
-  padding:clamp(1.4rem, 2.5vw, 2.4rem) clamp(.4rem, 1.5vw, 1.6rem) 0;
-  border-left:1px solid var(--line);
+.now-banner .lbl{
+  font-family:var(--font-mono); font-size:.68rem;
+  letter-spacing:.2em; text-transform:uppercase; color:var(--teal-ink);
+  flex:none;
 }
-.counter:first-child{ border-left:none; padding-left:0; }
-.counter .num{
-  font-family:var(--font-display);
-  font-size:clamp(2.4rem, 1.6rem + 4vw, 5.2rem);
-  font-weight:340;
-  font-variation-settings:"opsz" 100;
-  line-height:1;
+.now-banner .txt{ font-size:1rem; }
+.now-banner strong{ font-weight:600; }
+
+/* ============ FILTER ============ */
+.cal-filter{
+  margin-top:clamp(2.5rem, 5vw, 4rem);
+  display:flex; flex-wrap:wrap; gap:.55rem;
+  align-items:center;
+}
+.cal-filter .flabel{
+  font-family:var(--font-mono); font-size:.68rem;
+  letter-spacing:.18em; text-transform:uppercase; color:var(--ink-soft);
+  margin-right:.6rem;
+}
+.mbtn{
+  font-family:var(--font-body);
+  font-size:.85rem; font-weight:500;
   color:var(--ink);
+  background:transparent;
+  border:1.5px solid var(--line);
+  border-radius:999px;
+  padding:.45rem 1.05rem;
+  cursor:pointer;
+  transition:background .25s, border-color .25s, color .25s;
 }
-.counter .num sup{ font-size:.45em; color:var(--teal-ink); font-weight:420; }
-.counter .lbl{
+.mbtn:hover{ border-color:var(--ink); }
+.mbtn[aria-pressed="true"]{
+  background:var(--sun); border-color:var(--sun-deep); font-weight:600;
+}
+.mbtn.is-now::after{
+  content:"•";
+  color:var(--teal-ink);
+  margin-left:.4rem;
+}
+
+/* ============ CALENDAR ============ */
+.calendar{ margin-top:clamp(2.5rem, 5vw, 4rem); }
+
+.month{
+  display:grid;
+  grid-template-columns:repeat(12, 1fr);
+  column-gap:clamp(.75rem, 2vw, 2rem);
+  border-top:1px solid var(--line);
+  padding-block:clamp(2rem, 4vw, 3.4rem);
+}
+.month:last-of-type{ border-bottom:1px solid var(--line); }
+.month[hidden]{ display:none; }
+
+.month-head{
+  grid-column:1 / span 4;
+  align-self:start;
+  position:sticky; top:6.5rem;
+}
+.month-num{
+  font-family:var(--font-mono);
+  font-size:.72rem; letter-spacing:.18em;
+  color:var(--ink-soft);
+  display:block;
+}
+.month-head h2{
+  font-size:clamp(1.8rem, 1.2rem + 2.6vw, 3.2rem);
+  font-weight:360;
+  font-variation-settings:"opsz" 80;
+  margin-top:.45rem;
+}
+.month-count{
+  display:block;
   margin-top:.7rem;
   font-family:var(--font-mono);
-  font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+  font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
   color:var(--ink-soft);
 }
-@media (max-width:760px){
-  .counters{ grid-template-columns:1fr 1fr; row-gap:1.5rem; }
-  .counter:nth-child(3){ border-left:none; padding-left:0; }
+.now-tag{
+  display:inline-block;
+  margin-top:.9rem;
+  font-family:var(--font-mono);
+  font-size:.62rem; letter-spacing:.18em; text-transform:uppercase;
+  background:var(--sun); color:var(--ink);
+  padding:.3rem .7rem; border-radius:999px;
 }
 
-/* ---- GARDEN GALLERY ---- */
-.garden-intro{ grid-column:1 / span 5; }
-.garden-tags{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.6rem; }
-.tag{
-  font-size:.82rem; font-weight:500;
-  border:1.5px solid var(--ink);
-  border-radius:999px;
-  padding:.42rem 1rem;
-  transition:background .25s, border-color .25s;
-  cursor:default;
+.events{ grid-column:6 / span 7; list-style:none; }
+.event{
+  display:grid;
+  grid-template-columns:1.6rem 1fr;
+  gap:.2rem 1rem;
+  padding-block:.95rem;
+  border-bottom:1px solid var(--line);
 }
-.tag:hover{ background:var(--sun); border-color:var(--sun-deep); }
-.garden-away{ grid-column:7 / span 5; }
-.garden-away h3{
-  font-size:clamp(1.25rem, 1.05rem + 1vw, 1.8rem);
+.event:last-child{ border-bottom:none; }
+.event .dot{
+  width:.5rem; height:.5rem; border-radius:50%;
+  background:var(--teal);
+  margin-top:.62rem;
+}
+.event .ev-title{ font-weight:600; font-size:1rem; }
+.event .ev-note{
+  grid-column:2;
+  color:var(--ink-soft);
+  font-size:.9rem;
+}
+.month-note{
+  grid-column:6 / span 7;
+  margin-top:1.1rem;
+  font-family:var(--font-mono);
+  font-size:.72rem; letter-spacing:.1em;
+  color:var(--ink-soft);
+  display:flex; gap:.7rem;
+}
+.month-note::before{ content:"+"; color:var(--sun-deep); }
+
+@media (max-width:900px){
+  .month-head{ grid-column:1 / -1; position:static; }
+  .events, .month-note{ grid-column:1 / -1; }
+  .events{ margin-top:1.4rem; }
+}
+
+.cal-empty{
+  padding-block:4rem;
+  font-family:var(--font-display);
+  font-size:1.4rem; color:var(--ink-soft);
+}
+
+/* ============ EXTRA NOTE ============ */
+.extra{
+  margin-top:clamp(3rem, 6vw, 5rem);
+  display:grid; grid-template-columns:repeat(12,1fr);
+  column-gap:clamp(.75rem, 2vw, 2rem);
+}
+.extra-in{
+  grid-column:6 / span 7;
+  border-left:2px solid var(--sun);
+  padding-left:clamp(1.2rem, 2.5vw, 2.2rem);
+}
+.extra-in h3{
+  font-size:clamp(1.2rem, 1rem + 1vw, 1.7rem);
   font-weight:400;
   margin-bottom:.9rem;
-  display:flex; align-items:center; gap:.75rem;
 }
-.garden-away h3::before{
-  content:""; width:.8rem; height:.8rem; border-radius:50%;
-  background:var(--teal); flex:none;
-}
-@media (max-width:900px){
-  .garden-intro{ grid-column:1 / -1; }
-  .garden-away{ grid-column:1 / -1; margin-top:2.5rem; }
-}
+.extra-in p{ color:var(--ink-soft); font-size:.98rem; }
+@media (max-width:900px){ .extra-in{ grid-column:1 / -1; } }
 
-.gal{
-  margin-top:clamp(3rem, 7vw, 6rem);
-  row-gap:clamp(2.5rem, 6vw, 5rem);
-}
-.gal figure{ margin:0; }
-.gal .shot{
-  overflow:hidden;
-  border-radius:2px;
-  background:var(--cream-deep);
-}
-.gal img{
-  width:100%; height:auto;
-  transition:transform .7s cubic-bezier(.4,0,.2,1);
-}
-.gal figure:hover img{ transform:scale(1.04); }
-.gal figcaption{
-  margin-top:.9rem;
-  display:flex; align-items:baseline; gap:.8rem;
-  font-family:var(--font-mono);
-  font-size:.7rem; letter-spacing:.15em; text-transform:uppercase;
-  color:var(--ink-soft);
-}
-.gal figcaption .n{ color:var(--teal-ink); }
-.gal .g1{ grid-column:1 / span 7; }
-.gal .g2{ grid-column:9 / span 4; margin-top:clamp(2rem, 7vw, 6rem); }
-.gal .g3{ grid-column:2 / span 4; }
-.gal .g4{ grid-column:7 / span 6; margin-top:clamp(1.5rem, 4vw, 3.5rem); }
-@media (max-width:900px){
-  .gal .g1, .gal .g2, .gal .g3, .gal .g4{ grid-column:1 / -1; margin-top:0; }
-}
-
-/* ---- VISIT CTA ---- */
+/* ============ VISIT CTA ============ */
 .visit{
   margin-top:var(--section-gap);
   background:var(--ink);
@@ -446,9 +455,9 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
     </a>
     <nav aria-label="Hlavní navigace">
       <ul class="nav-links">
-        <li><a class="ul-link" href="o-skolce.html" aria-current="page">O školce</a></li>
+        <li><a class="ul-link" href="o-skolce.html">O školce</a></li>
         <li><a class="ul-link" href="index.html#den-ve-skolce">Den ve školce</a></li>
-        <li><a class="ul-link" href="kalendar-akci.html">Kalendář akcí</a></li>
+        <li><a class="ul-link" href="kalendar-akci.html" aria-current="page">Kalendář akcí</a></li>
         <li><a class="ul-link" href="dokumenty-ke-stazeni.html">Dokumenty</a></li>
         <li><a class="nav-cta" href="index.html#zapis">Zápis</a></li>
       </ul>
@@ -461,128 +470,189 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 
 <main>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="container grid12">
-    <div class="hero-copy">
-      <p class="kicker hero-kicker">O školce</p>
-      <h1 class="hero-title">
-        <span class="line"><span>Malá školka,</span></span>
-        <span class="line"><span><em>velká zahrada.</em></span></span>
-      </h1>
-      <p class="lead hero-lead">Sídlíme v prvním patře obecního domu uprostřed vesnice, dál od hlavní cesty. Hned za domem je zahrada, na které trávíme podstatnou část dne.</p>
-    </div>
-
-    <figure class="hero-figure">
-      <div class="shot">
-        <img src="img/skolka-uvod.jpg" width="1100" height="1467" alt="Budova mateřské školy Želatovice s chodníkem vedoucím ke vchodu" fetchpriority="high">
-      </div>
-      <figcaption>Želatovice 84 — naše budova</figcaption>
-    </figure>
-  </div>
-</section>
-
-<!-- ============ 01 KDO JSME ============ -->
-<section class="section" id="kdo-jsme">
+<!-- ============ PAGE HEAD ============ -->
+<section class="page-head">
+  <img class="head-bee" src="data:image/png;base64,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" alt="" aria-hidden="true">
   <div class="container">
-    <div class="sec-head reveal">
-      <span class="sec-num">01</span>
-      <h2>Kdo jsme</h2>
-      <span class="spacer"></span>
-      <span class="sec-side">jedna třída, dvacet dětí</span>
+    <p class="kicker head-kicker">Školní rok</p>
+    <h1 class="page-title">
+      <span class="line"><span>Kalendář</span></span>
+      <span class="line"><span><em>akcí.</em></span></span>
+    </h1>
+    <div class="head-sub">
+      <p class="lead head-lead">Výlety, slavnosti, kurzy i setkání s rodiči. Termíny upřesňujeme průběžně — hlásíme je na nástěnce, v aplikaci a místním rozhlasem.</p>
+      <p class="head-fact"><span id="total-count">40</span> akcí · září — červen<br>školní rok 2025/2026</p>
     </div>
 
-    <div class="grid12">
-      <div class="about-copy reveal">
-        <p class="big">Ve vesnici fungujeme <strong>od roku 1939</strong>. Za tu dobu jsme se naučily jedno — malé věci dělají velkou školku.</p>
-        <p style="margin-top:2rem;" class="lead">Jsme jednotřídní. Děti od dvou a půl do sedmi let jsou spolu v jedné skupině — starší pomáhají mladším, mladší se učí od starších. Tak, jak to chodí v každé dobré rodině.</p>
-        <p class="lead">Obě naše učitelky vystudovaly speciální pedagogiku předškolního věku. Každé dítě známe jménem. A taky víme, co má k svačině nejraději.</p>
-      </div>
-
-      <dl class="about-side reveal">
-        <div class="row"><dt>Třída</dt><dd>jedna, věkově smíšená</dd></div>
-        <div class="row"><dt>Věk dětí</dt><dd>2,5 — 7 let</dd></div>
-        <div class="row"><dt>Pedagožky</dt><dd>2 + školní asistentka</dd></div>
-        <div class="row"><dt>Strava</dt><dd>vlastní výdejna, obědy z Pavlovic</dd></div>
-        <div class="row"><dt>Poloha</dt><dd>střed obce, dál od silnice</dd></div>
-        <div class="row"><dt>Dostupnost</dt><dd>autobusem z Přerova i okolí</dd></div>
-        <div class="row"><dt>Spolupráce</dt><dd>místní ZŠ, PPP a SPC Přerov</dd></div>
-      </dl>
-    </div>
-
-    <div class="counters">
-      <div class="counter reveal">
-        <div class="num"><span data-count="1939" data-grouping="false">0</span></div>
-        <div class="lbl">rok založení</div>
-      </div>
-      <div class="counter reveal">
-        <div class="num"><span data-count="20">0</span></div>
-        <div class="lbl">dětí v jedné třídě</div>
-      </div>
-      <div class="counter reveal">
-        <div class="num"><span data-count="2">0</span></div>
-        <div class="lbl">kvalifikované učitelky</div>
-      </div>
-      <div class="counter reveal">
-        <div class="num"><span data-count="9">0</span><sup>h</sup></div>
-        <div class="lbl">provozu každý den</div>
-      </div>
+    <div class="now-banner" id="now-banner" hidden>
+      <span class="lbl" id="now-label">Právě teď</span>
+      <span class="txt" id="now-text"></span>
     </div>
   </div>
 </section>
 
-<!-- ============ 02 ZAHRADA ============ -->
-<section class="section" id="zahrada">
+<!-- ============ FILTER ============ -->
+<section>
   <div class="container">
-    <div class="sec-head reveal">
-      <span class="sec-num">02</span>
-      <h2>Naše zahrada</h2>
-      <span class="spacer"></span>
-      <span class="sec-side">hned za dveřmi</span>
+    <div class="cal-filter" id="cal-filter" role="group" aria-label="Filtr měsíců">
+      <span class="flabel">Měsíc</span>
+      <button class="mbtn" type="button" data-filter="all" aria-pressed="true">Celý rok</button>
+      <button class="mbtn" type="button" data-filter="9" aria-pressed="false">Září</button>
+      <button class="mbtn" type="button" data-filter="10" aria-pressed="false">Říjen</button>
+      <button class="mbtn" type="button" data-filter="11" aria-pressed="false">Listopad</button>
+      <button class="mbtn" type="button" data-filter="12" aria-pressed="false">Prosinec</button>
+      <button class="mbtn" type="button" data-filter="1" aria-pressed="false">Leden</button>
+      <button class="mbtn" type="button" data-filter="2" aria-pressed="false">Únor</button>
+      <button class="mbtn" type="button" data-filter="3" aria-pressed="false">Březen</button>
+      <button class="mbtn" type="button" data-filter="4" aria-pressed="false">Duben</button>
+      <button class="mbtn" type="button" data-filter="5" aria-pressed="false">Květen</button>
+      <button class="mbtn" type="button" data-filter="6" aria-pressed="false">Červen</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CALENDAR ============ -->
+<section>
+  <div class="container">
+    <div class="calendar" id="calendar">
+      <article class="month" data-month="9">
+        <div class="month-head">
+          <span class="month-num">09</span>
+          <h2>Září</h2>
+          <span class="month-count">6 akcí</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Návštěva statku v Podolí</span><span class="ev-note">jízda na poníkovi</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Třídní schůzky</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Logopedická přednáška pro rodiče</span><span class="ev-note">SPC Přerov</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Hudební pohádka v MŠ</span><span class="ev-note">společně s MŠ Tučín — vážná hudba</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Bubliny klauna Chytrolína v MŠ Bezuchov</span><span class="ev-note">polodenní výlet</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Zahájení plaveckého kurzu</span><span class="ev-note">každou středu, 10 lekcí</span></li>
+        </ul>
+      </article>
+      <article class="month" data-month="10">
+        <div class="month-head">
+          <span class="month-num">10</span>
+          <h2>Říjen</h2>
+          <span class="month-count">4 akce</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Pohádka Skřítek Vítek v MŠ Tučín</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Dravci v ZŠ Želatovice</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Drakiáda s rodiči</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Plavecký kurz</span><span class="ev-note">pokračuje každou středu</span></li>
+        </ul>
+      </article>
+      <article class="month" data-month="11">
+        <div class="month-head">
+          <span class="month-num">11</span>
+          <h2>Listopad</h2>
+          <span class="month-count">2 akce</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Ukončení plaveckého kurzu</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Svatomartinská slavnost × Vánoční jarmark</span></li>
+        </ul>
+      </article>
+      <article class="month" data-month="12">
+        <div class="month-head">
+          <span class="month-num">12</span>
+          <h2>Prosinec</h2>
+          <span class="month-count">5 akcí</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Mikulášská nadílka v MŠ</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Rubínka a Pomněnka v Pavlovicích</span><span class="ev-note">kulturní dům</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Vánoční nadílka v MŠ</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Vánoční dílničky v restauraci</span><span class="ev-note">s obcí Želatovice a ZŠ</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Vánoční prázdniny</span></li>
+        </ul>
+      </article>
+      <article class="month" data-month="1">
+        <div class="month-head">
+          <span class="month-num">01</span>
+          <h2>Leden</h2>
+          <span class="month-count">2 akce</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Konzultační hodiny s rodiči</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Cvičení v tělocvičně ZŠ Želatovice</span><span class="ev-note">každou středu</span></li>
+        </ul>
+        <p class="month-note">další akce dle aktuální nabídky</p>
+      </article>
+      <article class="month" data-month="2">
+        <div class="month-head">
+          <span class="month-num">02</span>
+          <h2>Únor</h2>
+          <span class="month-count">3 akce</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Karneval</span><span class="ev-note">hry, tanec, tombola</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Cvičení v ZŠ Želatovice</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Vystoupení pro seniory v restauraci</span></li>
+        </ul>
+      </article>
+      <article class="month" data-month="3">
+        <div class="month-head">
+          <span class="month-num">03</span>
+          <h2>Březen</h2>
+          <span class="month-count">4 akce</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Návštěva knihovny</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Návštěva Kravína v Želatovicích</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Velikonoční dílny v restauraci</span><span class="ev-note">s obcí Želatovice a ZŠ</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Velikonoční dílny s rodiči v MŠ</span><span class="ev-note">pletení pomlázek, zdobení voskem</span></li>
+        </ul>
+      </article>
+      <article class="month" data-month="4">
+        <div class="month-head">
+          <span class="month-num">04</span>
+          <h2>Duben</h2>
+          <span class="month-count">4 akce</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Zápis do MŠ</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Návštěva statku v Tučíně</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Čarodějnický týden v MŠ</span><span class="ev-note">kostýmy, tanec, hry</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Pálení čarodějnic na Charamzku</span><span class="ev-note">se ZŠ a obcí</span></li>
+        </ul>
+      </article>
+      <article class="month" data-month="5">
+        <div class="month-head">
+          <span class="month-num">05</span>
+          <h2>Květen</h2>
+          <span class="month-count">5 akcí</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Konzultace s rodiči</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Den rodiny na zahradě MŠ</span><span class="ev-note">s rodiči</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Piknik s dětmi</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Jóga na zahradě</span><span class="ev-note">cvičení venku dle počasí</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Svátek matek</span></li>
+        </ul>
+      </article>
+      <article class="month" data-month="6">
+        <div class="month-head">
+          <span class="month-num">06</span>
+          <h2>Červen</h2>
+          <span class="month-count">5 akcí</span>
+        </div>
+        <ul class="events">
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Den dětí v MŠ</span><span class="ev-note">oslava</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Den dětí na Charamzku</span><span class="ev-note">soutěže se ZŠ a obcí</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Slavnostní rozloučení s předškoláky</span><span class="ev-note">s rodiči</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Ukončení školního roku na Charamzku</span><span class="ev-note">Ahoj školo! — se ZŠ a obcí</span></li>
+          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Výlety dle nabídky a počasí</span><span class="ev-note">Tučín, Pavlovice ráj, farma Čech</span></li>
+        </ul>
+      </article>
     </div>
 
-    <div class="grid12">
-      <div class="garden-intro reveal">
-        <p class="lead">Zahrada přiléhá přímo k budově. Ráno na ní cvičíme, dopoledne si hrajeme a když je hezky, svačíme venku. Herní prvky postupně obnovujeme.</p>
-        <div class="garden-tags">
-          <span class="tag">pískoviště</span>
-          <span class="tag">lanové centrum</span>
-          <span class="tag">překážková dráha</span>
-          <span class="tag">skluzavka</span>
-          <span class="tag">houpačky</span>
-          <span class="tag">zahradní domek</span>
-        </div>
+    <div class="extra">
+      <div class="extra-in">
+        <h3>A co ještě?</h3>
+        <p>Kromě stálých akcí zařazujeme i další podle aktuální nabídky — zámek v Přerově, představení v kině Hvězda, loutkové divadlo, Prcek Pepino, Ornis Přerov, Atlas a Bios Přerov nebo výlety do Centra ráj Pavlovice a na farmu Čech.</p>
       </div>
-
-      <div class="garden-away reveal">
-        <h3>Kam chodíme</h3>
-        <p class="lead">Obecní hřiště na Charamzku, fotbalové hřiště, polní cesta ke Kozlovicím. Vesnice je naše druhá herna.</p>
-        <div class="garden-tags">
-          <span class="tag">hřiště Charamzek</span>
-          <span class="tag">fotbalové hřiště</span>
-          <span class="tag">polní cesty</span>
-          <span class="tag">odpočívadlo u družstva</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="grid12 gal">
-      <figure class="g1 reveal">
-        <div class="shot"><img src="img/lanove-centrum.jpg" width="800" height="1067" loading="lazy" alt="Barevná dřevěná překážková sestava s prolézacím tunelem na zahradě školky"></div>
-        <figcaption><span class="n">01</span> Překážková dráha</figcaption>
-      </figure>
-      <figure class="g2 reveal">
-        <div class="shot"><img src="img/kos.jpg" width="800" height="1067" loading="lazy" alt="Basketbalový koš s deskou ve tvaru zelené žabky"></div>
-        <figcaption><span class="n">02</span> Koš se žabkou</figcaption>
-      </figure>
-      <figure class="g3 reveal">
-        <div class="shot"><img src="img/klouzacka.jpg" width="800" height="1067" loading="lazy" alt="Žlutá skluzavka a houpačky na travnaté zahradě školky"></div>
-        <figcaption><span class="n">03</span> Skluzavka a houpačky</figcaption>
-      </figure>
-      <figure class="g4 reveal">
-        <div class="shot"><img src="img/lanovka.jpg" width="800" height="1067" loading="lazy" alt="Lanová prolézačka se sítí podél živého plotu"></div>
-        <figcaption><span class="n">04</span> Lanové centrum</figcaption>
-      </figure>
     </div>
   </div>
 </section>
@@ -591,11 +661,11 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 <section class="visit">
   <span class="orn" aria-hidden="true"></span>
   <div class="container">
-    <p class="kicker reveal">Přijďte se podívat</p>
-    <h2 class="reveal">Nejlepší je vidět to <em>na vlastní oči.</em></h2>
-    <p class="reveal">Zavolejte nebo napište a domluvíme se na návštěvě. Ukážeme vám třídu, hernu i zahradu — nejraději ve chvíli, kdy je školka plná dětí.</p>
-    <div class="actions reveal">
-      <a class="btn btn-sun magnetic" href="mailto:mszelatovice@seznam.cz?subject=N%C3%A1v%C5%A1t%C4%9Bva%20ve%20%C5%A1kolce"><span>Napište nám</span><span class="arr">→</span></a>
+    <p class="kicker">Chcete být u toho?</p>
+    <h2>Většinu akcí děláme <em>společně s rodiči.</em></h2>
+    <p>Dílny, jarmarky, drakiáda i den rodiny — na tyhle akce zveme celé rodiny. Termíny se dozvíte s předstihem.</p>
+    <div class="actions">
+      <a class="btn btn-sun magnetic" href="mailto:mszelatovice@seznam.cz?subject=Dotaz%20k%20akc%C3%ADm"><span>Napište nám</span><span class="arr">→</span></a>
       <a class="btn btn-ghost magnetic" href="index.html#zapis"><span>Informace k zápisu</span><span class="arr">→</span></a>
     </div>
   </div>
@@ -617,6 +687,11 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 (function(){
   "use strict";
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var MONTH_NAMES = ["", "lednu", "únoru", "březnu", "dubnu", "květnu", "červnu",
+                     "červenci", "srpnu", "září", "říjnu", "listopadu", "prosinci"];
 
   /* ---- Mobile menu (must work even without GSAP) ---- */
   var navEl = document.querySelector(".nav");
@@ -642,52 +717,121 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
     });
   }
 
-  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* ---- Which month are we in? ---- */
+  var months = Array.prototype.slice.call(document.querySelectorAll(".month"));
+  var monthNums = months.map(function(m){ return parseInt(m.getAttribute("data-month"), 10); });
+  var today = new Date();
+  var current = today.getMonth() + 1;
+  var inSchoolYear = monthNums.indexOf(current) !== -1;
+
+  /* mark the current month, or point at the next one when we are on holiday */
+  var focusMonth = current;
+  if (!inSchoolYear) {
+    focusMonth = 9; /* school year starts in September */
+  }
+
+  var focusEl = months.filter(function(m){
+    return parseInt(m.getAttribute("data-month"), 10) === focusMonth;
+  })[0];
+
+  if (focusEl && inSchoolYear) {
+    var head = focusEl.querySelector(".month-head");
+    var tag = document.createElement("span");
+    tag.className = "now-tag";
+    tag.textContent = "právě teď";
+    head.appendChild(tag);
+  }
+
+  var btnForFocus = document.querySelector('.mbtn[data-filter="' + focusMonth + '"]');
+  if (btnForFocus) btnForFocus.classList.add("is-now");
+
+  /* ---- Banner: what is happening now ---- */
+  var banner = document.getElementById("now-banner");
+  var nowText = document.getElementById("now-text");
+  var nowLabel = document.getElementById("now-label");
+  if (banner && focusEl) {
+    var count = focusEl.querySelectorAll(".event").length;
+    var name = MONTH_NAMES[focusMonth];
+    if (inSchoolYear) {
+      nowText.innerHTML = "V <strong>" + name + "</strong> nás čeká " + count +
+        (count === 1 ? " akce." : (count >= 2 && count <= 4 ? " akce." : " akcí."));
+    } else {
+      nowLabel.textContent = "Prázdniny";
+      nowText.innerHTML = "Užíváme si léto. Nový školní rok začíná v <strong>září</strong> — čeká nás " +
+        count + (count >= 2 && count <= 4 ? " akce." : " akcí.");
+    }
+    banner.hidden = false;
+  }
+
+  /* ---- Month filter ---- */
+  var filter = document.getElementById("cal-filter");
+  var calendar = document.getElementById("calendar");
+  var emptyMsg = null;
+
+  function applyFilter(value){
+    months.forEach(function(m){
+      var show = value === "all" || m.getAttribute("data-month") === value;
+      m.hidden = !show;
+    });
+    filter.querySelectorAll(".mbtn").forEach(function(b){
+      b.setAttribute("aria-pressed", String(b.getAttribute("data-filter") === value));
+    });
+    var visible = months.filter(function(m){ return !m.hidden; });
+    if (!visible.length) {
+      if (!emptyMsg) {
+        emptyMsg = document.createElement("p");
+        emptyMsg.className = "cal-empty";
+        emptyMsg.textContent = "V tomto měsíci nemáme naplánovanou žádnou akci.";
+        calendar.appendChild(emptyMsg);
+      }
+      emptyMsg.hidden = false;
+    } else if (emptyMsg) {
+      emptyMsg.hidden = true;
+    }
+    if (window.gsap && !reduced) {
+      gsap.fromTo(visible, { autoAlpha:0, y:18 },
+        { autoAlpha:1, y:0, duration:.5, stagger:.06, ease:"power2.out", overwrite:true });
+      if (window.ScrollTrigger) ScrollTrigger.refresh();
+    }
+  }
+
+  filter.addEventListener("click", function(e){
+    var btn = e.target.closest(".mbtn");
+    if (!btn) return;
+    applyFilter(btn.getAttribute("data-filter"));
+  });
+
   if (reduced || !window.gsap || !window.ScrollTrigger) return;
 
   gsap.registerPlugin(ScrollTrigger);
 
-  /* ---- Hero stagger reveal ---- */
+  /* ---- Head reveal ---- */
   gsap.timeline({ defaults:{ ease:"power3.out" } })
-    .from(".hero-kicker", { y:24, autoAlpha:0, duration:.7 })
-    .from(".hero-title .line > span", { yPercent:110, duration:1.1, stagger:.14 }, "-=.35")
-    .from(".hero-lead", { y:30, autoAlpha:0, duration:.8 }, "-=.55")
-    .from(".hero-figure", { y:40, autoAlpha:0, duration:1 }, "-=.75");
+    .from(".head-kicker", { y:24, autoAlpha:0, duration:.7 })
+    .from(".page-title .line > span", { yPercent:110, duration:1.1, stagger:.14 }, "-=.35")
+    .from(".head-lead, .head-fact", { y:30, autoAlpha:0, duration:.8, stagger:.12 }, "-=.55")
+    .from(".now-banner", { y:22, autoAlpha:0, duration:.7 }, "-=.5")
+    .from(".head-bee", { x:60, y:-30, rotation:8, autoAlpha:0, duration:1.1, ease:"back.out(1.4)" }, "-=.8")
+    .from(".cal-filter .mbtn", { y:16, autoAlpha:0, duration:.5, stagger:.04 }, "-=.6");
 
-  /* ---- Hero photo parallax ---- */
-  gsap.to(".hero-figure img", {
-    yPercent: 5, ease: "none",
-    scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: true }
-  });
+  gsap.to(".head-bee", { y:"+=12", rotation:3, duration:2.6, ease:"sine.inOut", yoyo:true, repeat:-1 });
 
-  /* ---- Section reveals ---- */
-  ScrollTrigger.batch(".reveal", {
-    start: "top 88%",
+  /* ---- Month reveals ---- */
+  ScrollTrigger.batch(".month", {
+    start: "top 90%",
     once: true,
     onEnter: function(batch){
-      gsap.from(batch, { y:42, autoAlpha:0, duration:.9, ease:"power3.out", stagger:.12, overwrite:true });
+      gsap.from(batch, { y:36, autoAlpha:0, duration:.8, ease:"power3.out", stagger:.1, overwrite:true });
     }
   });
 
-  /* ---- Counters (once, on first entry into viewport) ---- */
-  var countObserver = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if (!entry.isIntersecting) return;
-      var el = entry.target;
-      countObserver.unobserve(el);
-      var target = parseFloat(el.getAttribute("data-count"));
-      var grouping = el.getAttribute("data-grouping") !== "false";
-      var obj = { val: 0 };
-      gsap.to(obj, {
-        val: target, duration: 1.8, ease: "power2.out",
-        onUpdate: function(){
-          var v = Math.round(obj.val);
-          el.textContent = grouping ? v.toLocaleString("cs-CZ") : String(v);
-        }
-      });
-    });
-  }, { threshold: .6 });
-  document.querySelectorAll("[data-count]").forEach(function(el){ countObserver.observe(el); });
+  ScrollTrigger.batch(".extra-in, .visit .kicker, .visit h2, .visit p, .visit .actions", {
+    start: "top 90%",
+    once: true,
+    onEnter: function(batch){
+      gsap.from(batch, { y:32, autoAlpha:0, duration:.8, ease:"power3.out", stagger:.1, overwrite:true });
+    }
+  });
 
   /* ---- Magnetic buttons ---- */
   if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {

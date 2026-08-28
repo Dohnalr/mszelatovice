@@ -618,6 +618,45 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
   text-transform:uppercase;
 }
 
+
+/* ---- CALENDAR TEASER ---- */
+.cal-teaser-copy{ grid-column:1 / span 6; }
+.cal-teaser-copy .big{
+  font-family:var(--font-display);
+  font-size:clamp(1.5rem, 1.15rem + 1.9vw, 2.7rem);
+  font-weight:360; line-height:1.28;
+  font-variation-settings:"opsz" 60;
+}
+.cal-teaser-copy .big strong{ font-weight:520; color:var(--teal-ink); }
+.cal-teaser-list{
+  grid-column:8 / span 5;
+  border-left:2px solid var(--sun);
+  padding-left:clamp(1.2rem, 2.5vw, 2.5rem);
+  align-self:start;
+}
+.cal-teaser-list .teaser-label{
+  font-family:var(--font-mono);
+  font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--teal-ink);
+  margin-bottom:.4rem;
+}
+.cal-teaser-list ul{ list-style:none; }
+.cal-teaser-list li{
+  padding-block:1rem;
+  border-bottom:1px solid var(--line);
+}
+.cal-teaser-list li:last-child{ border-bottom:none; }
+.cal-teaser-list .t{ font-weight:600; font-size:.98rem; display:block; }
+.cal-teaser-list .m{
+  font-family:var(--font-mono);
+  font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink-soft);
+}
+@media (max-width:900px){
+  .cal-teaser-copy{ grid-column:1 / -1; }
+  .cal-teaser-list{ grid-column:1 / -1; margin-top:3rem; }
+}
+
 /* ============ MOTION SAFETY ============ */
 @media (prefers-reduced-motion: reduce){
   *, *::before, *::after{
@@ -643,8 +682,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
       <ul class="nav-links">
         <li><a class="ul-link" href="o-skolce.html">O školce</a></li>
         <li><a class="ul-link" href="#den-ve-skolce">Den ve školce</a></li>
-        <li><a class="ul-link" href="#program">Program</a></li>
-        <li><a class="ul-link" href="#zivot">Zahrada &amp; akce</a></li>
+        <li><a class="ul-link" href="kalendar-akci.html">Kalendář akcí</a></li>
         <li><a class="ul-link" href="dokumenty-ke-stazeni.html">Dokumenty</a></li>
         <li><a class="nav-cta" href="#zapis">Zápis</a></li>
       </ul>
@@ -793,53 +831,25 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 </div>
 
 <!-- ============ 04 ZAHRADA & AKCE ============ -->
-<section class="section" id="zivot">
+<section class="section" id="akce">
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-num">03</span>
-      <h2>Zahrada &amp; akce</h2>
+      <h2>Kalendář akcí</h2>
       <span class="spacer"></span>
-      <span class="sec-side">venku, kdykoli to jde</span>
+      <span class="sec-side">září — červen</span>
     </div>
 
-    <div class="grid12 life-grid">
-      <div class="life-block reveal">
-        <h3>Zahrada hned za dveřmi</h3>
-        <p class="lead">Pískoviště, houpačky se skluzavkou, malé lanové centrum a překážková dráha. Když počasí dovolí, cvičíme i svačíme venku.</p>
-        <p style="margin-top:1.1rem;"><a class="ul-link" href="o-skolce.html#zahrada">Prohlédněte si zahradu na fotkách →</a></p>
-        <div class="tags">
-          <span class="tag">pískoviště</span>
-          <span class="tag">lanové centrum</span>
-          <span class="tag">překážková dráha</span>
-          <span class="tag">skluzavka</span>
-          <span class="tag">zahradní domek</span>
-        </div>
+    <div class="grid12">
+      <div class="cal-teaser-copy reveal">
+        <p class="big">Čtyřicet akcí za školní rok. Výlety, slavnosti, kurzy — a spousta z nich <strong>společně s rodiči</strong>.</p>
+        <p class="lead" style="margin-top:1.8rem;">Plavecký kurz, drakiáda, vánoční dílničky, karneval, čarodějnice na Charamzku i rozloučení s předškoláky. Termíny upřesňujeme průběžně.</p>
+        <p style="margin-top:2rem;"><a class="btn btn-sun magnetic" href="kalendar-akci.html"><span>Celý kalendář akcí</span><span class="arr">&#8594;</span></a></p>
       </div>
 
-      <div class="life-block reveal">
-        <h3>Kam chodíme</h3>
-        <p class="lead">Obecní hřiště na Charamzku, fotbalové hřiště, polní cesta ke Kozlovicím. Vesnice je naše druhá herna.</p>
-        <div class="tags">
-          <span class="tag">hřiště Charamzek</span>
-          <span class="tag">fotbalové hřiště</span>
-          <span class="tag">polní cesty</span>
-          <span class="tag">odpočívadlo u družstva</span>
-        </div>
-      </div>
-
-      <div class="life-block wide reveal">
-        <h3>Co nás čeká během roku</h3>
-        <p class="lead" style="max-width:44em;">Rodiče k nám patří. Zveme je na společná tvoření, jarmark i vystoupení dětí — a předškoláci u nás jednou za rok dokonce přespí.</p>
-        <div class="tags">
-          <span class="tag">plavecký kurz</span>
-          <span class="tag">keramický kurz</span>
-          <span class="tag">jarmark</span>
-          <span class="tag">tvoření s rodiči</span>
-          <span class="tag">besídky</span>
-          <span class="tag">výlety</span>
-          <span class="tag">přespávání ve školce</span>
-          <span class="tag">návštěvy v ZŠ</span>
-        </div>
+      <div class="cal-teaser-list reveal" id="cal-teaser">
+        <p class="teaser-label">Nejbližší akce</p>
+        <ul id="teaser-events"></ul>
       </div>
     </div>
   </div>
@@ -944,6 +954,38 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
     document.addEventListener("keydown", function(e){
       if (e.key === "Escape") closeNav();
     });
+  }
+
+  /* ---- Calendar teaser: next events, based on today's month ---- */
+  var CAL_ORDER = [9,10,11,12,1,2,3,4,5,6];
+  var CAL_NAMES = {9:"Září",10:"Říjen",11:"Listopad",12:"Prosinec",1:"Leden",2:"Únor",3:"Březen",4:"Duben",5:"Květen",6:"Červen"};
+  var CAL = {
+    9:  ["Návštěva statku v Podolí","Třídní schůzky","Logopedická přednáška pro rodiče","Hudební pohádka v MŠ","Bubliny klauna Chytrolína","Zahájení plaveckého kurzu"],
+    10: ["Pohádka Skřítek Vítek v MŠ Tučín","Dravci v ZŠ Želatovice","Drakiáda s rodiči","Plavecký kurz"],
+    11: ["Ukončení plaveckého kurzu","Svatomartinská slavnost × Vánoční jarmark"],
+    12: ["Mikulášská nadílka v MŠ","Rubínka a Pomněnka v Pavlovicích","Vánoční nadílka v MŠ","Vánoční dílničky v restauraci","Vánoční prázdniny"],
+    1:  ["Konzultační hodiny s rodiči","Cvičení v tělocvičně ZŠ Želatovice"],
+    2:  ["Karneval","Cvičení v ZŠ Želatovice","Vystoupení pro seniory v restauraci"],
+    3:  ["Návštěva knihovny","Návštěva Kravína v Želatovicích","Velikonoční dílny v restauraci","Velikonoční dílny s rodiči v MŠ"],
+    4:  ["Zápis do MŠ","Návštěva statku v Tučíně","Čarodějnický týden v MŠ","Pálení čarodějnic na Charamzku"],
+    5:  ["Konzultace s rodiči","Den rodiny na zahradě MŠ","Piknik s dětmi","Jóga na zahradě","Svátek matek"],
+    6:  ["Den dětí v MŠ","Den dětí na Charamzku","Slavnostní rozloučení s předškoláky","Ukončení školního roku na Charamzku","Výlety dle nabídky a počasí"]
+  };
+  var teaserList = document.getElementById("teaser-events");
+  if (teaserList) {
+    var cur = new Date().getMonth() + 1;
+    var startAt = CAL_ORDER.indexOf(cur);
+    if (startAt === -1) startAt = 0; /* summer holidays -> start the year in September */
+    var picked = [];
+    for (var i = 0; i < CAL_ORDER.length && picked.length < 4; i++) {
+      var m = CAL_ORDER[(startAt + i) % CAL_ORDER.length];
+      (CAL[m] || []).forEach(function(title){
+        if (picked.length < 4) picked.push({ m: m, t: title });
+      });
+    }
+    teaserList.innerHTML = picked.map(function(e){
+      return '<li><span class="t">' + e.t + '</span><span class="m">' + CAL_NAMES[e.m] + '</span></li>';
+    }).join("");
   }
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
