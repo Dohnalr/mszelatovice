@@ -222,6 +222,40 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 }
 @media (max-width:760px){ .hero-sub{ grid-template-columns:1fr; } }
 
+.hero-grid{
+  display:grid;
+  grid-template-columns:repeat(12, 1fr);
+  column-gap:clamp(.75rem, 2vw, 2rem);
+  align-items:end;
+}
+.hero-copy{ grid-column:1 / span 7; }
+.hero-photo{
+  grid-column:8 / -1;
+  margin:0 calc(-1 * var(--gutter)) .4rem 0;
+  align-self:end;
+}
+.hero-photo .shot{
+  overflow:hidden;
+  border-radius:2px 0 0 2px;
+  background:var(--cream-deep);
+}
+.hero-photo img{ width:100%; height:auto; }
+.hero-photo figcaption{
+  margin-top:.85rem;
+  font-family:var(--font-mono);
+  font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
+  color:var(--ink-soft);
+}
+@media (max-width:900px){
+  .hero-copy{ grid-column:1 / -1; }
+  .hero-photo{
+    grid-column:1 / -1;
+    margin:clamp(2.5rem, 6vw, 3.5rem) calc(-1 * var(--gutter)) 0;
+  }
+  .hero-photo .shot{ border-radius:0; }
+  .hero-photo figcaption{ padding-inline:var(--gutter); }
+}
+
 .hero-actions{ display:flex; gap:1rem; flex-wrap:wrap; margin-top:clamp(1.8rem, 3.5vw, 3rem); }
 
 .btn{
@@ -701,6 +735,8 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
   <span class="hero-orn" aria-hidden="true" data-parallax="-40"></span>
 
   <div class="container" style="position:relative; z-index:2;">
+   <div class="hero-grid">
+    <div class="hero-copy">
     <p class="kicker hero-kicker">Mateřská škola Želatovice</p>
     <h1 class="hero-title">
       <span class="line"><span>Nečekáme, až</span></span>
@@ -717,6 +753,15 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
       <a class="btn btn-sun magnetic" href="o-skolce.html"><span>O školce</span><span class="arr">→</span></a>
       <a class="btn btn-ghost magnetic" href="#den-ve-skolce"><span>Den ve školce</span><span class="arr">↓</span></a>
     </div>
+    </div>
+
+    <figure class="hero-photo">
+      <div class="shot">
+        <img src="img/piskoviste.jpg" width="1200" height="900" alt="Děti si hrají na pískovišti na zahradě školky pod stínící plachtou" fetchpriority="high">
+      </div>
+      <figcaption>Dopoledne na zahradě</figcaption>
+    </figure>
+   </div>
   </div>
 
   <span class="hero-scroll" aria-hidden="true">posouvej</span>
@@ -1000,6 +1045,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
     .from(".hero-title .line > span", { yPercent:110, duration:1.1, stagger:.14 }, "-=.35")
     .from(".hero-lead, .hero-fact", { y:30, autoAlpha:0, duration:.8, stagger:.12 }, "-=.55")
     .from(".hero-actions .btn", { y:24, autoAlpha:0, duration:.7, stagger:.1 }, "-=.5")
+    .from(".hero-photo", { y:46, autoAlpha:0, duration:1 }, "-=.8")
     .from(".hero-bee", { x:80, y:-40, rotation:8, autoAlpha:0, duration:1.2, ease:"back.out(1.4)" }, "-=.9")
     .from(".hero-scroll", { autoAlpha:0, duration:.6 }, "-=.3");
 
