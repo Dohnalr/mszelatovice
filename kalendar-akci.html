@@ -750,7 +750,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 
     /* ---- Month filter ---- */
     var emptyMsg = null;
-    function applyFilter(value){
+    function applyFilter(value, animate){
       monthEls.forEach(function(m){
         m.hidden = !(value === "all" || m.getAttribute("data-month") === value);
       });
@@ -767,7 +767,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
       } else if (emptyMsg) {
         emptyMsg.hidden = true;
       }
-      if (hasGsap) {
+      if (hasGsap && animate !== false) {
         gsap.fromTo(visible, { autoAlpha:0, y:18 },
           { autoAlpha:1, y:0, duration:.5, stagger:.06, ease:"power2.out", overwrite:true });
         ScrollTrigger.refresh();
@@ -777,6 +777,10 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
       var btn = e.target.closest(".mbtn");
       if (btn) applyFilter(btn.getAttribute("data-filter"));
     });
+
+    /* Po načtení rovnou vyber aktuální měsíc (nebo nejbližší další s akcemi).
+       „Celý rok“ zůstává k dispozici v přepínači. */
+    if (focusEl) applyFilter(String(focusMonth), false);
 
     if (!hasGsap) return;
 
