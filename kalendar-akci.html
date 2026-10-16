@@ -345,6 +345,21 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
   .events{ margin-top:1.4rem; }
 }
 
+.cal-status{
+  padding-block:4rem;
+  border-top:1px solid var(--line);
+  font-family:var(--font-display);
+  font-size:1.3rem; color:var(--ink-soft);
+}
+.cal-status a{ color:var(--teal-ink); }
+.event .ev-date{
+  font-family:var(--font-mono);
+  font-size:.74rem; letter-spacing:.06em; font-weight:500;
+  color:var(--teal-ink);
+  margin-right:.55rem;
+  white-space:nowrap;
+}
+
 .cal-empty{
   padding-block:4rem;
   font-family:var(--font-display);
@@ -481,7 +496,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
     </h1>
     <div class="head-sub">
       <p class="lead head-lead">Výlety, slavnosti, kurzy i setkání s rodiči. Termíny upřesňujeme průběžně — hlásíme je na nástěnce, v aplikaci a místním rozhlasem.</p>
-      <p class="head-fact"><span id="total-count">40</span> akcí · září — červen<br>školní rok 2025/2026</p>
+      <p class="head-fact" id="cal-fact" aria-live="polite">&nbsp;<br>&nbsp;</p>
     </div>
 
     <div class="now-banner" id="now-banner" hidden>
@@ -497,16 +512,6 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
     <div class="cal-filter" id="cal-filter" role="group" aria-label="Filtr měsíců">
       <span class="flabel">Měsíc</span>
       <button class="mbtn" type="button" data-filter="all" aria-pressed="true">Celý rok</button>
-      <button class="mbtn" type="button" data-filter="9" aria-pressed="false">Září</button>
-      <button class="mbtn" type="button" data-filter="10" aria-pressed="false">Říjen</button>
-      <button class="mbtn" type="button" data-filter="11" aria-pressed="false">Listopad</button>
-      <button class="mbtn" type="button" data-filter="12" aria-pressed="false">Prosinec</button>
-      <button class="mbtn" type="button" data-filter="1" aria-pressed="false">Leden</button>
-      <button class="mbtn" type="button" data-filter="2" aria-pressed="false">Únor</button>
-      <button class="mbtn" type="button" data-filter="3" aria-pressed="false">Březen</button>
-      <button class="mbtn" type="button" data-filter="4" aria-pressed="false">Duben</button>
-      <button class="mbtn" type="button" data-filter="5" aria-pressed="false">Květen</button>
-      <button class="mbtn" type="button" data-filter="6" aria-pressed="false">Červen</button>
     </div>
   </div>
 </section>
@@ -514,138 +519,9 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 <!-- ============ CALENDAR ============ -->
 <section>
   <div class="container">
-    <div class="calendar" id="calendar">
-      <article class="month" data-month="9">
-        <div class="month-head">
-          <span class="month-num">09</span>
-          <h2>Září</h2>
-          <span class="month-count">6 akcí</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Návštěva statku v Podolí</span><span class="ev-note">jízda na poníkovi</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Třídní schůzky</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Logopedická přednáška pro rodiče</span><span class="ev-note">SPC Přerov</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Hudební pohádka v MŠ</span><span class="ev-note">společně s MŠ Tučín — vážná hudba</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Bubliny klauna Chytrolína v MŠ Bezuchov</span><span class="ev-note">polodenní výlet</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Zahájení plaveckého kurzu</span><span class="ev-note">každou středu, 10 lekcí</span></li>
-        </ul>
-      </article>
-      <article class="month" data-month="10">
-        <div class="month-head">
-          <span class="month-num">10</span>
-          <h2>Říjen</h2>
-          <span class="month-count">4 akce</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Pohádka Skřítek Vítek v MŠ Tučín</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Dravci v ZŠ Želatovice</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Drakiáda s rodiči</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Plavecký kurz</span><span class="ev-note">pokračuje každou středu</span></li>
-        </ul>
-      </article>
-      <article class="month" data-month="11">
-        <div class="month-head">
-          <span class="month-num">11</span>
-          <h2>Listopad</h2>
-          <span class="month-count">2 akce</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Ukončení plaveckého kurzu</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Svatomartinská slavnost × Vánoční jarmark</span></li>
-        </ul>
-      </article>
-      <article class="month" data-month="12">
-        <div class="month-head">
-          <span class="month-num">12</span>
-          <h2>Prosinec</h2>
-          <span class="month-count">5 akcí</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Mikulášská nadílka v MŠ</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Rubínka a Pomněnka v Pavlovicích</span><span class="ev-note">kulturní dům</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Vánoční nadílka v MŠ</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Vánoční dílničky v restauraci</span><span class="ev-note">s obcí Želatovice a ZŠ</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Vánoční prázdniny</span></li>
-        </ul>
-      </article>
-      <article class="month" data-month="1">
-        <div class="month-head">
-          <span class="month-num">01</span>
-          <h2>Leden</h2>
-          <span class="month-count">2 akce</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Konzultační hodiny s rodiči</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Cvičení v tělocvičně ZŠ Želatovice</span><span class="ev-note">každou středu</span></li>
-        </ul>
-        <p class="month-note">další akce dle aktuální nabídky</p>
-      </article>
-      <article class="month" data-month="2">
-        <div class="month-head">
-          <span class="month-num">02</span>
-          <h2>Únor</h2>
-          <span class="month-count">3 akce</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Karneval</span><span class="ev-note">hry, tanec, tombola</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Cvičení v ZŠ Želatovice</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Vystoupení pro seniory v restauraci</span></li>
-        </ul>
-      </article>
-      <article class="month" data-month="3">
-        <div class="month-head">
-          <span class="month-num">03</span>
-          <h2>Březen</h2>
-          <span class="month-count">4 akce</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Návštěva knihovny</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Návštěva Kravína v Želatovicích</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Velikonoční dílny v restauraci</span><span class="ev-note">s obcí Želatovice a ZŠ</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Velikonoční dílny s rodiči v MŠ</span><span class="ev-note">pletení pomlázek, zdobení voskem</span></li>
-        </ul>
-      </article>
-      <article class="month" data-month="4">
-        <div class="month-head">
-          <span class="month-num">04</span>
-          <h2>Duben</h2>
-          <span class="month-count">4 akce</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Zápis do MŠ</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Návštěva statku v Tučíně</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Čarodějnický týden v MŠ</span><span class="ev-note">kostýmy, tanec, hry</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Pálení čarodějnic na Charamzku</span><span class="ev-note">se ZŠ a obcí</span></li>
-        </ul>
-      </article>
-      <article class="month" data-month="5">
-        <div class="month-head">
-          <span class="month-num">05</span>
-          <h2>Květen</h2>
-          <span class="month-count">5 akcí</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Konzultace s rodiči</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Den rodiny na zahradě MŠ</span><span class="ev-note">s rodiči</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Piknik s dětmi</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Jóga na zahradě</span><span class="ev-note">cvičení venku dle počasí</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Svátek matek</span></li>
-        </ul>
-      </article>
-      <article class="month" data-month="6">
-        <div class="month-head">
-          <span class="month-num">06</span>
-          <h2>Červen</h2>
-          <span class="month-count">5 akcí</span>
-        </div>
-        <ul class="events">
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Den dětí v MŠ</span><span class="ev-note">oslava</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Den dětí na Charamzku</span><span class="ev-note">soutěže se ZŠ a obcí</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Slavnostní rozloučení s předškoláky</span><span class="ev-note">s rodiči</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Ukončení školního roku na Charamzku</span><span class="ev-note">Ahoj školo! — se ZŠ a obcí</span></li>
-          <li class="event"><span class="dot" aria-hidden="true"></span><span class="ev-title">Výlety dle nabídky a počasí</span><span class="ev-note">Tučín, Pavlovice ráj, farma Čech</span></li>
-        </ul>
-      </article>
+    <div class="calendar" id="calendar" aria-live="polite">
+      <p class="cal-status" id="cal-status">Načítám kalendář akcí…</p>
+      <noscript><p class="cal-status">Kalendář akcí se zobrazí po zapnutí JavaScriptu. Akce vám rádi sdělíme na <a class="ul-link" href="mailto:mszelatovice@seznam.cz">mszelatovice@seznam.cz</a>.</p></noscript>
     </div>
 
     <div class="extra">
@@ -683,15 +559,15 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/akce.js"></script>
 <script>
 (function(){
   "use strict";
   document.getElementById("year").textContent = new Date().getFullYear();
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  var MONTH_NAMES = ["", "lednu", "únoru", "březnu", "dubnu", "květnu", "červnu",
-                     "červenci", "srpnu", "září", "říjnu", "listopadu", "prosinci"];
+  var hasGsap = !reduced && window.gsap && window.ScrollTrigger;
+  if (hasGsap) gsap.registerPlugin(ScrollTrigger);
 
   /* ---- Mobile menu (must work even without GSAP) ---- */
   var navEl = document.querySelector(".nav");
@@ -717,113 +593,207 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
     });
   }
 
-  /* ---- Which month are we in? ---- */
-  var months = Array.prototype.slice.call(document.querySelectorAll(".month"));
-  var monthNums = months.map(function(m){ return parseInt(m.getAttribute("data-month"), 10); });
-  var today = new Date();
-  var current = today.getMonth() + 1;
-  var inSchoolYear = monthNums.indexOf(current) !== -1;
-
-  /* mark the current month, or point at the next one when we are on holiday */
-  var focusMonth = current;
-  if (!inSchoolYear) {
-    focusMonth = 9; /* school year starts in September */
-  }
-
-  var focusEl = months.filter(function(m){
-    return parseInt(m.getAttribute("data-month"), 10) === focusMonth;
-  })[0];
-
-  if (focusEl && inSchoolYear) {
-    var head = focusEl.querySelector(".month-head");
-    var tag = document.createElement("span");
-    tag.className = "now-tag";
-    tag.textContent = "právě teď";
-    head.appendChild(tag);
-  }
-
-  var btnForFocus = document.querySelector('.mbtn[data-filter="' + focusMonth + '"]');
-  if (btnForFocus) btnForFocus.classList.add("is-now");
-
-  /* ---- Banner: what is happening now ---- */
-  var banner = document.getElementById("now-banner");
-  var nowText = document.getElementById("now-text");
-  var nowLabel = document.getElementById("now-label");
-  if (banner && focusEl) {
-    var count = focusEl.querySelectorAll(".event").length;
-    var name = MONTH_NAMES[focusMonth];
-    if (inSchoolYear) {
-      nowText.innerHTML = "V <strong>" + name + "</strong> nás čeká " + count +
-        (count === 1 ? " akce." : (count >= 2 && count <= 4 ? " akce." : " akcí."));
-    } else {
-      nowLabel.textContent = "Prázdniny";
-      nowText.innerHTML = "Užíváme si léto. Nový školní rok začíná v <strong>září</strong> — čeká nás " +
-        count + (count >= 2 && count <= 4 ? " akce." : " akcí.");
-    }
-    banner.hidden = false;
-  }
-
-  /* ---- Month filter ---- */
-  var filter = document.getElementById("cal-filter");
-  var calendar = document.getElementById("calendar");
-  var emptyMsg = null;
-
-  function applyFilter(value){
-    months.forEach(function(m){
-      var show = value === "all" || m.getAttribute("data-month") === value;
-      m.hidden = !show;
-    });
-    filter.querySelectorAll(".mbtn").forEach(function(b){
-      b.setAttribute("aria-pressed", String(b.getAttribute("data-filter") === value));
-    });
-    var visible = months.filter(function(m){ return !m.hidden; });
-    if (!visible.length) {
-      if (!emptyMsg) {
-        emptyMsg = document.createElement("p");
-        emptyMsg.className = "cal-empty";
-        emptyMsg.textContent = "V tomto měsíci nemáme naplánovanou žádnou akci.";
-        calendar.appendChild(emptyMsg);
-      }
-      emptyMsg.hidden = false;
-    } else if (emptyMsg) {
-      emptyMsg.hidden = true;
-    }
-    if (window.gsap && !reduced) {
-      gsap.fromTo(visible, { autoAlpha:0, y:18 },
-        { autoAlpha:1, y:0, duration:.5, stagger:.06, ease:"power2.out", overwrite:true });
-      if (window.ScrollTrigger) ScrollTrigger.refresh();
-    }
-  }
-
-  filter.addEventListener("click", function(e){
-    var btn = e.target.closest(".mbtn");
-    if (!btn) return;
-    applyFilter(btn.getAttribute("data-filter"));
-  });
-
-  if (reduced || !window.gsap || !window.ScrollTrigger) return;
-
-  gsap.registerPlugin(ScrollTrigger);
-
   /* ---- Head reveal ---- */
-  gsap.timeline({ defaults:{ ease:"power3.out" } })
-    .from(".head-kicker", { y:24, autoAlpha:0, duration:.7 })
-    .from(".page-title .line > span", { yPercent:110, duration:1.1, stagger:.14 }, "-=.35")
-    .from(".head-lead, .head-fact", { y:30, autoAlpha:0, duration:.8, stagger:.12 }, "-=.55")
-    .from(".now-banner", { y:22, autoAlpha:0, duration:.7 }, "-=.5")
-    .from(".head-bee", { x:60, y:-30, rotation:8, autoAlpha:0, duration:1.1, ease:"back.out(1.4)" }, "-=.8")
-    .from(".cal-filter .mbtn", { y:16, autoAlpha:0, duration:.5, stagger:.04 }, "-=.6");
+  if (hasGsap) {
+    gsap.timeline({ defaults:{ ease:"power3.out" } })
+      .from(".head-kicker", { y:24, autoAlpha:0, duration:.7 })
+      .from(".page-title .line > span", { yPercent:110, duration:1.1, stagger:.14 }, "-=.35")
+      .from(".head-lead, .head-fact", { y:30, autoAlpha:0, duration:.8, stagger:.12 }, "-=.55")
+      .from(".head-bee", { x:60, y:-30, rotation:8, autoAlpha:0, duration:1.1, ease:"back.out(1.4)" }, "-=.8");
+    gsap.to(".head-bee", { y:"+=12", rotation:3, duration:2.6, ease:"sine.inOut", yoyo:true, repeat:-1 });
+  }
 
-  gsap.to(".head-bee", { y:"+=12", rotation:3, duration:2.6, ease:"sine.inOut", yoyo:true, repeat:-1 });
+  var A = window.MSAkce;
+  var calendar = document.getElementById("calendar");
+  var statusEl = document.getElementById("cal-status");
+  var filter = document.getElementById("cal-filter");
+  var factEl = document.getElementById("cal-fact");
 
-  /* ---- Month reveals ---- */
-  ScrollTrigger.batch(".month", {
-    start: "top 90%",
-    once: true,
-    onEnter: function(batch){
-      gsap.from(batch, { y:36, autoAlpha:0, duration:.8, ease:"power3.out", stagger:.1, overwrite:true });
-    }
+  function el(tag, cls, text){
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    return e;
+  }
+
+  function showError(){
+    statusEl.innerHTML = "";
+    statusEl.appendChild(document.createTextNode("Kalendář akcí se teď nepodařilo načíst. Zkuste stránku obnovit, nebo nám napište na "));
+    var a = el("a", "ul-link", "mszelatovice@seznam.cz");
+    a.href = "mailto:mszelatovice@seznam.cz?subject=Dotaz%20k%20akc%C3%ADm";
+    statusEl.appendChild(a);
+    statusEl.appendChild(document.createTextNode("."));
+    factEl.innerHTML = "&nbsp;<br>&nbsp;";
+  }
+
+  if (!A) { showError(); return; }
+
+  A.load().then(render).catch(function(err){
+    if (window.console) console.error("[akce]", err);
+    showError();
   });
+
+  function render(data){
+    var total = data.events.length;
+    factEl.innerHTML = "";
+    factEl.appendChild(document.createTextNode(total + " " + A.plural(total, "akce", "akce", "akcí") +
+      (data.months.length ? " · " + A.NAMES[data.months[0].mesic].toLowerCase() + " — " +
+        A.NAMES[data.months[data.months.length - 1].mesic].toLowerCase() : "")));
+    factEl.appendChild(document.createElement("br"));
+    factEl.appendChild(document.createTextNode("školní rok " + data.year));
+
+    if (!total) {
+      statusEl.textContent = "Akce na tento školní rok právě připravujeme.";
+      filter.style.display = "none";
+      return;
+    }
+    statusEl.remove();
+
+    /* ---- Months ---- */
+    var monthEls = data.months.map(function(m){
+      var art = el("article", "month");
+      art.setAttribute("data-month", m.mesic);
+
+      var head = el("div", "month-head");
+      head.appendChild(el("span", "month-num", (m.mesic < 10 ? "0" : "") + m.mesic));
+      head.appendChild(el("h2", null, A.NAMES[m.mesic]));
+      var n = m.events.length;
+      head.appendChild(el("span", "month-count", n + " " + A.plural(n, "akce", "akce", "akcí")));
+      art.appendChild(head);
+
+      var ul = el("ul", "events");
+      m.events.forEach(function(e){
+        var li = el("li", "event");
+        var dot = el("span", "dot"); dot.setAttribute("aria-hidden", "true");
+        li.appendChild(dot);
+        var title = el("span", "ev-title");
+        if (e.datum) {
+          var t = el("time", "ev-date", A.shortDate(e.datum));
+          t.setAttribute("datetime", e.datum);
+          title.appendChild(t);
+        }
+        title.appendChild(document.createTextNode(e.nazev || ""));
+        li.appendChild(title);
+        if (e.poznamka) li.appendChild(el("span", "ev-note", e.poznamka));
+        ul.appendChild(li);
+      });
+      art.appendChild(ul);
+      calendar.appendChild(art);
+      return art;
+    });
+
+    /* ---- Filter buttons ---- */
+    data.months.forEach(function(m){
+      var b = el("button", "mbtn", A.NAMES[m.mesic]);
+      b.type = "button";
+      b.setAttribute("data-filter", String(m.mesic));
+      b.setAttribute("aria-pressed", "false");
+      filter.appendChild(b);
+    });
+
+    /* ---- Which month are we in? ---- */
+    var current = new Date().getMonth() + 1;
+    var monthNums = data.months.map(function(m){ return m.mesic; });
+    var isNow = data.isCurrent && monthNums.indexOf(current) !== -1;
+    var focusMonth = isNow ? current : null;
+
+    if (!focusMonth && data.isCurrent) {
+      /* najdi nejbližší další měsíc s akcemi */
+      var ci = A.ORDER.indexOf(current);
+      for (var i = 0; i < A.ORDER.length; i++) {
+        var cand = A.ORDER[(ci + i) % A.ORDER.length];
+        if (monthNums.indexOf(cand) !== -1) { focusMonth = cand; break; }
+      }
+    }
+
+    var focusEl = null;
+    monthEls.forEach(function(m){
+      if (parseInt(m.getAttribute("data-month"), 10) === focusMonth) focusEl = m;
+    });
+
+    if (focusEl && isNow) {
+      focusEl.querySelector(".month-head").appendChild(el("span", "now-tag", "právě teď"));
+      var btnNow = filter.querySelector('.mbtn[data-filter="' + focusMonth + '"]');
+      if (btnNow) btnNow.classList.add("is-now");
+    }
+
+    /* ---- Banner ---- */
+    var banner = document.getElementById("now-banner");
+    var nowText = document.getElementById("now-text");
+    var nowLabel = document.getElementById("now-label");
+    if (banner && focusEl) {
+      var count = focusEl.querySelectorAll(".event").length;
+      var word = A.plural(count, "akce", "akce", "akcí");
+      nowText.innerHTML = "";
+      if (isNow) {
+        nowText.appendChild(document.createTextNode("V "));
+        nowText.appendChild(el("strong", null, A.NAMES_LOC[focusMonth]));
+        nowText.appendChild(document.createTextNode(" nás čeká " + count + " " + word + "."));
+      } else {
+        nowLabel.textContent = "Brzy";
+        nowText.appendChild(document.createTextNode("Další akce nás čekají v "));
+        nowText.appendChild(el("strong", null, A.NAMES_LOC[focusMonth]));
+        nowText.appendChild(document.createTextNode(" — " + count + " " + word + "."));
+      }
+      banner.hidden = false;
+      if (hasGsap) gsap.from(banner, { y:22, autoAlpha:0, duration:.7, ease:"power3.out" });
+    }
+    if (banner && !data.isCurrent) {
+      nowLabel.textContent = "Připravujeme";
+      nowText.innerHTML = "";
+      nowText.appendChild(document.createTextNode("Akce na školní rok "));
+      nowText.appendChild(el("strong", null, A.currentSchoolYear()));
+      nowText.appendChild(document.createTextNode(" právě chystáme. Pro představu přikládáme přehled z roku " + data.year + "."));
+      banner.hidden = false;
+      if (hasGsap) gsap.from(banner, { y:22, autoAlpha:0, duration:.7, ease:"power3.out" });
+    }
+
+    /* ---- Month filter ---- */
+    var emptyMsg = null;
+    function applyFilter(value){
+      monthEls.forEach(function(m){
+        m.hidden = !(value === "all" || m.getAttribute("data-month") === value);
+      });
+      filter.querySelectorAll(".mbtn").forEach(function(b){
+        b.setAttribute("aria-pressed", String(b.getAttribute("data-filter") === value));
+      });
+      var visible = monthEls.filter(function(m){ return !m.hidden; });
+      if (!visible.length) {
+        if (!emptyMsg) {
+          emptyMsg = el("p", "cal-empty", "V tomto měsíci nemáme naplánovanou žádnou akci.");
+          calendar.appendChild(emptyMsg);
+        }
+        emptyMsg.hidden = false;
+      } else if (emptyMsg) {
+        emptyMsg.hidden = true;
+      }
+      if (hasGsap) {
+        gsap.fromTo(visible, { autoAlpha:0, y:18 },
+          { autoAlpha:1, y:0, duration:.5, stagger:.06, ease:"power2.out", overwrite:true });
+        ScrollTrigger.refresh();
+      }
+    }
+    filter.addEventListener("click", function(e){
+      var btn = e.target.closest(".mbtn");
+      if (btn) applyFilter(btn.getAttribute("data-filter"));
+    });
+
+    if (!hasGsap) return;
+
+    gsap.from(".cal-filter .mbtn", { y:16, autoAlpha:0, duration:.5, stagger:.04, ease:"power3.out" });
+
+    /* ---- Month reveals ---- */
+    ScrollTrigger.batch(".month", {
+      start: "top 90%",
+      once: true,
+      onEnter: function(batch){
+        gsap.from(batch, { y:36, autoAlpha:0, duration:.8, ease:"power3.out", stagger:.1, overwrite:true });
+      }
+    });
+    ScrollTrigger.refresh();
+  }
+
+  if (!hasGsap) return;
 
   ScrollTrigger.batch(".extra-in, .visit .kicker, .visit h2, .visit p, .visit .actions", {
     start: "top 90%",

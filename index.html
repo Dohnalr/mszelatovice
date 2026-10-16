@@ -964,6 +964,7 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/akce.js"></script>
 <script>
 (function(){
   "use strict";
@@ -993,36 +994,39 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
     });
   }
 
-  /* ---- Calendar teaser: next events, based on today's month ---- */
-  var CAL_ORDER = [9,10,11,12,1,2,3,4,5,6];
-  var CAL_NAMES = {9:"Září",10:"Říjen",11:"Listopad",12:"Prosinec",1:"Leden",2:"Únor",3:"Březen",4:"Duben",5:"Květen",6:"Červen"};
-  var CAL = {
-    9:  ["Návštěva statku v Podolí","Třídní schůzky","Logopedická přednáška pro rodiče","Hudební pohádka v MŠ","Bubliny klauna Chytrolína","Zahájení plaveckého kurzu"],
-    10: ["Pohádka Skřítek Vítek v MŠ Tučín","Dravci v ZŠ Želatovice","Drakiáda s rodiči","Plavecký kurz"],
-    11: ["Ukončení plaveckého kurzu","Svatomartinská slavnost × Vánoční jarmark"],
-    12: ["Mikulášská nadílka v MŠ","Rubínka a Pomněnka v Pavlovicích","Vánoční nadílka v MŠ","Vánoční dílničky v restauraci","Vánoční prázdniny"],
-    1:  ["Konzultační hodiny s rodiči","Cvičení v tělocvičně ZŠ Želatovice"],
-    2:  ["Karneval","Cvičení v ZŠ Želatovice","Vystoupení pro seniory v restauraci"],
-    3:  ["Návštěva knihovny","Návštěva Kravína v Želatovicích","Velikonoční dílny v restauraci","Velikonoční dílny s rodiči v MŠ"],
-    4:  ["Zápis do MŠ","Návštěva statku v Tučíně","Čarodějnický týden v MŠ","Pálení čarodějnic na Charamzku"],
-    5:  ["Konzultace s rodiči","Den rodiny na zahradě MŠ","Piknik s dětmi","Jóga na zahradě","Svátek matek"],
-    6:  ["Den dětí v MŠ","Den dětí na Charamzku","Slavnostní rozloučení s předškoláky","Ukončení školního roku na Charamzku","Výlety dle nabídky a počasí"]
-  };
+  /* ---- Calendar teaser: nejbližší akce ze Sanity (js/akce.js) ---- */
   var teaserList = document.getElementById("teaser-events");
-  if (teaserList) {
-    var cur = new Date().getMonth() + 1;
-    var startAt = CAL_ORDER.indexOf(cur);
-    if (startAt === -1) startAt = 0; /* summer holidays -> start the year in September */
-    var picked = [];
-    for (var i = 0; i < CAL_ORDER.length && picked.length < 4; i++) {
-      var m = CAL_ORDER[(startAt + i) % CAL_ORDER.length];
-      (CAL[m] || []).forEach(function(title){
-        if (picked.length < 4) picked.push({ m: m, t: title });
+  var teaserBox = document.getElementById("cal-teaser");
+  if (teaserList && window.MSAkce) {
+    var A = window.MSAkce;
+    A.load().then(function(data){
+      /* akce z minulého školního roku nejsou „nejbližší“ */
+      if (!data.isCurrent) { teaserBox.style.display = "none"; return; }
+      var cur = new Date().getMonth() + 1;
+      var startAt = Math.max(0, A.ORDER.indexOf(cur));
+      var picked = [];
+      for (var i = 0; i < A.ORDER.length && picked.length < 4; i++) {
+        var m = A.ORDER[(startAt + i) % A.ORDER.length];
+        data.events.forEach(function(ev){
+          if (ev.mesic === m && picked.length < 4) picked.push(ev);
+        });
+      }
+      if (!picked.length) { teaserBox.style.display = "none"; return; }
+      teaserList.innerHTML = "";
+      picked.forEach(function(ev){
+        var li = document.createElement("li");
+        var t = document.createElement("span"); t.className = "t"; t.textContent = ev.nazev || "";
+        var mm = document.createElement("span"); mm.className = "m";
+        mm.textContent = (ev.datum ? A.shortDate(ev.datum) + " · " : "") + A.NAMES[ev.mesic];
+        li.appendChild(t); li.appendChild(mm);
+        teaserList.appendChild(li);
       });
-    }
-    teaserList.innerHTML = picked.map(function(e){
-      return '<li><span class="t">' + e.t + '</span><span class="m">' + CAL_NAMES[e.m] + '</span></li>';
-    }).join("");
+    }).catch(function(err){
+      if (window.console) console.error("[akce]", err);
+      teaserBox.style.display = "none";
+    });
+  } else if (teaserBox) {
+    teaserBox.style.display = "none";
   }
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
