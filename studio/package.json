@@ -8,7 +8,8 @@
     "build": "sanity build",
     "deploy": "sanity deploy",
     "login": "sanity login",
-    "import-akce": "sanity dataset import data/akce.ndjson --dataset production --missing"
+    "import-akce": "sanity dataset import data/akce.ndjson --dataset production --missing",
+    "import-2026": "sanity dataset import data/akce-2026-2027.ndjson --dataset production --replace"
   },
   "dependencies": {
     "@sanity/icons": "^5.2.3",

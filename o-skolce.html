@@ -302,6 +302,80 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
   .counter:nth-child(3){ border-left:none; padding-left:0; }
 }
 
+/* ---- TEAM ---- */
+.team-intro{ grid-column:1 / span 6; }
+.team{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  column-gap:clamp(1.2rem, 3vw, 3rem);
+  row-gap:3.5rem;
+  margin-top:clamp(2.5rem, 5vw, 4rem);
+}
+.member{
+  border-top:2px solid var(--ink);
+  padding-top:clamp(1.4rem, 2.5vw, 2rem);
+  display:flex; flex-direction:column;
+}
+.member-top{ display:flex; align-items:center; gap:1rem; }
+.member-mono{
+  width:3.4rem; height:3.4rem; flex:none;
+  border-radius:50%;
+  background:var(--sun);
+  display:grid; place-items:center;
+  font-family:var(--font-display);
+  font-size:1.25rem; font-weight:420;
+  color:var(--ink);
+}
+.member:nth-child(2) .member-mono{ background:var(--teal); }
+.member:nth-child(3) .member-mono{ background:var(--cream-deep); box-shadow:inset 0 0 0 1.5px var(--ink); }
+.member-role{
+  font-family:var(--font-mono);
+  font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--teal-ink);
+}
+.member h3{
+  margin-top:1.3rem;
+  font-size:clamp(1.45rem, 1.15rem + 1.2vw, 2.05rem);
+  font-weight:380;
+  font-variation-settings:"opsz" 72;
+  line-height:1.12;
+}
+.member h3 small{
+  display:block;
+  margin-top:.45rem;
+  font-family:var(--font-body);
+  font-size:.86rem; font-weight:500; letter-spacing:0;
+  color:var(--ink-soft);
+}
+.member p{
+  margin-top:1.2rem;
+  color:var(--ink-soft);
+  font-size:.98rem;
+}
+.member-fact{
+  margin-top:auto;
+  padding-top:1.4rem;
+}
+.member-fact span{
+  display:block;
+  border-top:1px solid var(--line);
+  padding-top:.9rem;
+  font-family:var(--font-mono);
+  font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink);
+}
+.member-tags{ display:flex; flex-wrap:wrap; gap:.5rem; margin-top:1.1rem; }
+.member-tags .tag{ font-size:.78rem; padding:.34rem .85rem; }
+@media (max-width:1000px){
+  .team{ grid-template-columns:1fr 1fr; }
+}
+@media (max-width:900px){
+  .team-intro{ grid-column:1 / -1; }
+}
+@media (max-width:640px){
+  .team{ grid-template-columns:1fr; row-gap:2.8rem; }
+}
+
 /* ---- GARDEN GALLERY ---- */
 .garden-intro{ grid-column:1 / span 5; }
 .garden-tags{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.6rem; }
@@ -503,13 +577,13 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
       <div class="about-copy reveal">
         <p class="big">Ve vesnici fungujeme <strong>od roku 1939</strong>. Za tu dobu jsme se naučily jedno — malé věci dělají velkou školku.</p>
         <p style="margin-top:2rem;" class="lead">Jsme jednotřídní. Děti od dvou a půl do sedmi let jsou spolu v jedné skupině — starší pomáhají mladším, mladší se učí od starších. Tak, jak to chodí v každé dobré rodině.</p>
-        <p class="lead">Obě naše učitelky vystudovaly speciální pedagogiku předškolního věku. Každé dítě známe jménem. A taky víme, co má k svačině nejraději.</p>
+        <p class="lead">Naše pedagožky mají vysokoškolské vzdělání v předškolní a speciální pedagogice. Každé dítě známe jménem. A taky víme, co má k svačině nejraději.</p>
       </div>
 
       <dl class="about-side reveal">
         <div class="row"><dt>Třída</dt><dd>jedna, věkově smíšená</dd></div>
         <div class="row"><dt>Věk dětí</dt><dd>2,5 — 7 let</dd></div>
-        <div class="row"><dt>Pedagožky</dt><dd>2 + školní asistentka</dd></div>
+        <div class="row"><dt>Tým</dt><dd>2 pedagožky + školnice</dd></div>
         <div class="row"><dt>Strava</dt><dd>vlastní výdejna, obědy z Pavlovic</dd></div>
         <div class="row"><dt>Poloha</dt><dd>střed obce, dál od silnice</dd></div>
         <div class="row"><dt>Dostupnost</dt><dd>autobusem z Přerova i okolí</dd></div>
@@ -538,11 +612,66 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
   </div>
 </section>
 
-<!-- ============ 02 UVNITŘ ============ -->
-<section class="section" id="uvnitr">
+<!-- ============ 02 NÁŠ TÝM ============ -->
+<section class="section" id="tym">
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-num">02</span>
+      <h2>Náš tým</h2>
+      <span class="spacer"></span>
+      <span class="sec-side">kdo se o děti stará</span>
+    </div>
+
+    <div class="grid12">
+      <p class="lead team-intro reveal">Jsme malý tým, a tak se známe s dětmi i rodiči osobně. Každá z nás má ve školce svou roli — dohromady se staráme o to, aby se tu děti cítily dobře.</p>
+    </div>
+
+    <div class="team">
+      <article class="member reveal">
+        <div class="member-top">
+          <span class="member-mono" aria-hidden="true">SK</span>
+          <span class="member-role">Ředitelka</span>
+        </div>
+        <h3>Bc. Sandra Kučerová<small>speciální pedagogika předškolního věku</small></h3>
+        <p>Jako ředitelka naší mateřské školy dbám na to, aby školka byla místem bezpečí, respektu a radosti z objevování. Mým cílem je vytvářet podnětné prostředí, kde se každé dítě může rozvíjet svým vlastním tempem.</p>
+        <p>Jsem tu pro děti, ale také pro rodiče.</p>
+        <div class="member-fact"><span>přes 20 let v předškolní pedagogice</span></div>
+      </article>
+
+      <article class="member reveal">
+        <div class="member-top">
+          <span class="member-mono" aria-hidden="true">NC</span>
+          <span class="member-role">Učitelka</span>
+        </div>
+        <h3>Mgr. Nikola Cahlíková<small>předškolní pedagogika</small></h3>
+        <p>Práce v mateřské škole je pro mě posláním. Baví mě sledovat, jak děti každý den dělají malé i velké pokroky.</p>
+        <p>Mým cílem je, aby děti odcházely domů s úsměvem a plné zážitků.</p>
+        <div class="member-tags">
+          <span class="tag">výtvarná činnost</span>
+          <span class="tag">environmentální výchova</span>
+        </div>
+        <div class="member-fact"><span>6 let v mateřské škole</span></div>
+      </article>
+
+      <article class="member reveal">
+        <div class="member-top">
+          <span class="member-mono" aria-hidden="true">JV</span>
+          <span class="member-role">Školnice</span>
+        </div>
+        <h3>Jana Vyhňáková<small>pro děti teta Jana</small></h3>
+        <p>Starám se o to, aby naše školka svítila čistotou a děti se u nás cítily jako doma. Pomohu s oblékáním i hygienou.</p>
+        <p>Mou pravou rukou je pořádek, úsměv a ochota pomoci.</p>
+        <div class="member-fact"><span>čistota, pořádek a pomocná ruka</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 UVNITŘ ============ -->
+<section class="section" id="uvnitr">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-num">03</span>
       <h2>Uvnitř školky</h2>
       <span class="spacer"></span>
       <span class="sec-side">třída, herna, šatna</span>
@@ -575,11 +704,11 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
   </div>
 </section>
 
-<!-- ============ 03 ZAHRADA ============ -->
+<!-- ============ 04 ZAHRADA ============ -->
 <section class="section" id="zahrada">
   <div class="container">
     <div class="sec-head reveal">
-      <span class="sec-num">03</span>
+      <span class="sec-num">04</span>
       <h2>Naše zahrada</h2>
       <span class="spacer"></span>
       <span class="sec-side">hned za dveřmi</span>
