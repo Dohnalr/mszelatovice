@@ -1004,11 +1004,14 @@ h1,h2,h3{ font-family:var(--font-display); font-weight:340; line-height:1.04; le
       if (!data.isCurrent) { teaserBox.style.display = "none"; return; }
       var cur = new Date().getMonth() + 1;
       var startAt = Math.max(0, A.ORDER.indexOf(cur));
+      var now = new Date();
+      var todayIso = now.getFullYear() + "-" + ("0" + (now.getMonth() + 1)).slice(-2) + "-" + ("0" + now.getDate()).slice(-2);
       var picked = [];
       for (var i = 0; i < A.ORDER.length && picked.length < 4; i++) {
         var m = A.ORDER[(startAt + i) % A.ORDER.length];
         data.events.forEach(function(ev){
-          if (ev.mesic === m && picked.length < 4) picked.push(ev);
+          /* akce s datem, které už proběhly, přeskočíme */
+          if (ev.mesic === m && picked.length < 4 && (!ev.datum || ev.datum >= todayIso)) picked.push(ev);
         });
       }
       if (!picked.length) { teaserBox.style.display = "none"; return; }
